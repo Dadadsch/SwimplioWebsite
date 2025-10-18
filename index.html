@@ -136,28 +136,6 @@
             gap: 40px;
             padding: 80px 0;
             min-height: 600px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            /* move illustration slightly more into view */
-            right: -4%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 62%;
-            height: 110%;
-            background-image: url('images/hero-illustration.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center right;
-            /* make it more visible */
-            opacity: 0.18;
-            /* place above the phone but below text/buttons */
-            z-index: 2;
-            pointer-events: none;
         }
 
         .hero-content h1 {
@@ -166,8 +144,6 @@
             margin-bottom: 20px;
             line-height: 1.2;
             color: var(--text-dark);
-            position: relative;
-            z-index: 1;
         }
 
         .hero-content p {
@@ -175,8 +151,6 @@
             color: var(--text-light);
             margin-bottom: 30px;
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
 
         .hero-buttons {
@@ -184,8 +158,6 @@
             gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
         }
 
         .btn-large {
@@ -200,22 +172,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1; /* keep phone behind illustration which has z-index:2 */
         }
 
         .phone-frame {
-            /* slightly smaller so it doesn't cover the hero illustration */
-            width: 260px;
-            height: 520px;
+            width: 300px;
+            height: 600px;
             background: var(--primary);
-            border-radius: 36px;
-            padding: 10px;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: float 4s ease-in-out infinite;
-            /* nudge left so the hero illustration is visible on the right */
-            transform: translateX(-40px);
-            z-index: 1;
         }
 
         .phone-frame::before {
@@ -234,7 +201,7 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: var(--light-bg);
+            background: white;
             border-radius: 35px;
             display: flex;
             flex-direction: column;
@@ -253,7 +220,7 @@
             object-position: top center;
             border-radius: 35px;
             position: absolute;
-            top: 0;
+            top: 25px;
             left: 0;
             opacity: 0;
             transition: opacity 1s ease-in-out;
@@ -308,6 +275,12 @@
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
+        }
+
+        .feature-icon img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
         }
 
         .feature-card h3 {
@@ -450,28 +423,61 @@
             opacity: 0.95;
         }
 
-        .contact-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .btn-light {
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: white;
+            color: var(--text-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
             background: white;
             color: var(--primary);
             font-weight: 700;
             padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
+            width: 100%;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 1.1rem;
             transition: all 0.3s;
         }
 
-        .btn-light:hover {
+        .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Download Section */
@@ -576,10 +582,8 @@
             }
 
             .phone-frame {
-                width: 220px;
-                height: 440px;
-                transform: translateX(0);
-                margin: 0 auto;
+                width: 250px;
+                height: 500px;
             }
 
             .nav-links {
@@ -639,15 +643,15 @@
     <section class="hero">
         <div class="container" style="grid-column: 1;">
             <div class="hero-content">
-                <h1>Effektiv und einfach Schwimmen Lernen - Kostenlos!</h1>
-                <p>Lerne deine nächste Schwimmtechnik mit 3D-Animationen – in deinem eigenen Tempo, von Anfänger bis Profi.</p>
+                <h1>Schwimmen Lernen – Einfach, Effektiv, Kostenlos!</h1>
+                <p>Lerne mit Hugo, deinem interaktiven 3D-Trainer, alle Schwimmtechniken – von Wassergewöhnung bis zur perfekten Rollwende.</p>
                 
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary btn-large">App Downloaden</a>
                     <a href="#features" class="btn btn-secondary btn-large">Mehr Erfahren</a>
                 </div>
 
-                <p style="font-size: 0.9rem; color: var(--text-light);">✓ Brustschwimmen kostenlos • ✓ 3D-Animationen • ✓ Für alle Alter</p>
+                <p style="font-size: 0.9rem; color: var(--text-light);">✓ Brustschwimmen komplett kostenlos • ✓ Interaktive 3D-Animationen • ✓ Für alle Altersgruppen</p>
             </div>
         </div>
 
@@ -667,45 +671,41 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🧜</div>
-                    <h3>Interaktive 3D-Animationen</h3>
-                    <p>Erlebe Schwimmtechniken in brillanten 3D-Animationen – aus jedem Blickwinkel, Schritt für Schritt erklärt.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Spielerisch Lernen</h3>
-                    <p>Motivierende Übungen mit Streaks, Achievements und Fortschrittsanzeige – maximale Motivation beim Lernen.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🏫</div>
-                    <h3>Von Experten Erstellt</h3>
-                    <p>Alle Inhalte basieren auf bewährten Trainingsmethoden von Schwimmtrainern und Wassersicherheitsexperten.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🏊</div>
-                    <h3>Alle Techniken</h3>
-                    <p>Brustschwimmen kostenlos – Kraul, Rückenschwimmen und Delfin in der Premium-Version.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Überall & Jederzeit</h3>
-                    <p>Lerne offline auf deinem Handy oder Tablet – ganz ohne Internetverbindung.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Für Alle Altersgruppen</h3>
-                    <p>Von Kindern bis Erwachsenen – angepasste Inhalte für dein Alter und dein Level.</p>
+                    <div class="feature-icon">
+                        <img src="images/hero-illustration.png" alt="Hugo 3D Animation">
+                    </div>
+                    <h3>Hugo – Dein 3D-Trainer</h3>
+                    <p>Interaktive 3D-Animationen mit Detailansichten, Zeitlupe und Schritt-für-Schritt Anweisungen – aus jedem Blickwinkel perfekt erklärt.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">💸</div>
                     <h3>Brustschwimmen Kostenlos</h3>
-                    <p>Starte kostenlos mit Brustschwimmen – der perfekte Einstieg ins Schwimmen lernen.</p>
+                    <p>Die komplette erste Schwimmtechnik inklusive Wassergewöhnung – komplett gratis, ohne Einschränkungen!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Faire Premium-Preise</h3>
+                    <p>Weitere Techniken für nur 10€ pro Lage oder alle drei für 25€ im Bundle. Einmaliger Kauf, kein Abo!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Für Alle Altersgruppen</h3>
+                    <p>Vom Kind das schwimmen lernt, über Jugendliche die neue Techniken meistern, bis zum Triathleten der seine Kraultechnik verfeinert.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Persönlicher Fortschritt</h3>
+                    <p>Verfolge deinen Lernfortschritt mit detaillierten Statistiken und geplanten Achievements.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤓</div>
+                    <h3>Von Experten Erstellt</h3>
+                    <p>Alle Inhalte basieren auf bewährten Trainingsmethoden von professionellen Schwimmtrainern.</p>
                 </div>
             </div>
         </div>
@@ -722,7 +722,7 @@
                         <img src="images/icons/brust.png" alt="Brustschwimmen Icon">
                     </div>
                     <h4>Brustschwimmen</h4>
-                    <p>Die klassische Technik – kostenlos verfügbar.</p>
+                    <p>Die klassische Technik – komplett kostenlos!</p>
                 </div>
 
                 <div class="tech-card">
@@ -730,7 +730,7 @@
                         <img src="images/icons/freistil.png" alt="Kraulschwimmen Icon">
                     </div>
                     <h4>Kraulschwimmen</h4>
-                    <p>Die schnellste und effizienteste Technik – Premium.</p>
+                    <p>Die schnellste Technik mit Rollwende & Startsprung – 10€</p>
                 </div>
 
                 <div class="tech-card">
@@ -738,7 +738,7 @@
                         <img src="images/icons/rücken.png" alt="Rückenschwimmen Icon">
                     </div>
                     <h4>Rückenschwimmen</h4>
-                    <p>Entspannt und sicher – ideal für lange Strecken. Premium.</p>
+                    <p>Entspannt und kraftvoll – perfekt für lange Strecken. 10€</p>
                 </div>
 
                 <div class="tech-card">
@@ -746,7 +746,7 @@
                         <img src="images/icons/schmetterling.png" alt="Delfinschwimmen Icon">
                     </div>
                     <h4>Delfinschwimmen</h4>
-                    <p>Die elegante Herausforderung – für Fortgeschrittene. Premium.</p>
+                    <p>Die elegante Herausforderung – für Fortgeschrittene. 10€</p>
                 </div>
             </div>
         </div>
@@ -765,31 +765,31 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Brustschwimmen ist komplett kostenlos! Du kannst alle Grundlagen des Schwimmens lernen, ohne einen Cent zu bezahlen. Weitere Techniken wie Kraul, Rückenschwimmen und Delfin sind in der Premium-Version verfügbar.
+                            Ja! Brustschwimmen ist komplett kostenlos – inklusive Wassergewöhnung und allen Übungen. Weitere Techniken (Kraul, Rücken, Delfin) kosten jeweils 10€ oder alle drei zusammen für 25€. Einmaliger Kauf, kein Abo!
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Ab welchem Alter kann man Swimplio nutzen?</span>
+                        <span>Wer ist Hugo und wie helfen mir die 3D-Animationen?</span>
                         <span class="faq-toggle">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Swimplio ist für alle Altersgruppen geeignet. Es gibt spezielle Module für Kinder, Jugendliche und Erwachsene. Für kleine Kinder unter 4 Jahren sollten Eltern immer anwesend sein.
+                            Hugo ist dein interaktiver 3D-Trainer! Er zeigt dir jede Bewegung in 3D – du kannst die Ansicht drehen, zoomen, pausieren und aus verschiedenen Perspektiven betrachten. Mit Detailansichten, Bildern und Textanweisungen verstehst du jede Technik perfekt.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Was sind 3D-Animationen und wie helfen sie mir?</span>
+                        <span>Für wen ist Swimplio geeignet?</span>
                         <span class="faq-toggle">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Unsere interaktiven 3D-Animationen zeigen dir jede Schwimmbewegung aus allen Perspektiven. Du kannst die Ansicht drehen, pausieren und einzelne Bewegungsabläufe in Zeitlupe ansehen – so verstehst du jede Technik perfekt.
+                            Für alle! Ob Kinder die erstmals schwimmen lernen (mit Wassergewöhnung), Jugendliche die weitere Techniken meistern wollen, oder Triathleten die ihre Kraultechnik verfeinern und Rollwende & Startsprung lernen möchten – Swimplio passt sich an dein Level an.
                         </div>
                     </div>
                 </div>
@@ -808,24 +808,24 @@
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Kann ich offline trainieren?</span>
+                        <span>Was kostet Swimplio?</span>
                         <span class="faq-toggle">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Ja! Swimplio funktioniert offline. Lade die App einfach herunter und alle Lektionen stehen dir zur Verfügung – auch ohne Internetverbindung.
+                            Brustschwimmen ist kostenlos. Weitere Techniken kosten 10€ pro Lage (Kraul, Rücken oder Delfin) oder alle drei zusammen für 25€ im Bundle. Einmaliger Kauf ohne Abo – du zahlst nur einmal und behältst alle Inhalte für immer!
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Wie lange dauert es, Schwimmen zu lernen?</span>
+                        <span>Ersetzt Swimplio einen echten Schwimmkurs?</span>
                         <span class="faq-toggle">▼</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Das hängt von dir ab! Mit regelmäßigem Training (3-4x pro Woche) können die meisten Menschen grundlegende Schwimmtechniken in 4-8 Wochen beherrschen. Fortgeschrittene Techniken brauchen etwas länger.
+                            Swimplio ist eine großartige Ergänzung zu Schwimmkursen und ideal zum selbstständigen Üben. Für absolute Anfänger empfehlen wir, zusätzlich ein paar Stunden mit einem Trainer zu nehmen – so lernst du die richtige Technik am schnellsten.
                         </div>
                     </div>
                 </div>
@@ -837,7 +837,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Swimplio funktioniert auf iOS und Android Geräten. Lade die App einfach aus dem App Store oder Play Store herunter.
+                            Swimplio funktioniert auf iOS und Android Smartphones und Tablets. Lade die App einfach aus dem App Store oder Play Store herunter.
                         </div>
                     </div>
                 </div>
@@ -849,7 +849,7 @@
     <section class="downloads" id="download">
         <div class="container">
             <h2 class="section-title">Jetzt Downloaden</h2>
-            <p style="font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 40px;">Starte noch heute dein Schwimm-Abenteuer. Brustschwimmen ist komplett kostenlos!</p>
+            <p style="font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 40px;">Starte kostenlos mit Brustschwimmen. Hugo wartet schon auf dich!</p>
             
             <div class="download-buttons">
                 <a href="https://apps.apple.com" class="download-btn" target="_blank">
@@ -865,14 +865,31 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Noch Fragen?</h2>
-            <p>Wir sind hier um zu helfen! Schreib uns eine E-Mail.</p>
+            <h2>Fragen? Schreib uns!</h2>
+            <p>Wir helfen gerne – Antwort innerhalb von 24 Stunden.</p>
             
-            <div class="contact-buttons">
-                <a href="mailto:info@swimplio.de" class="btn-light">
-                    ✉️ info@swimplio.de
-                </a>
-            </div>
+            <form class="contact-form" action="https://formspree.io/f/mvgwljrk" method="POST">
+                <div class="form-group">
+                    <label for="name">Dein Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Deine E-Mail</label>
+                    <input type="email" id="email" name="email" required placeholder="max@beispiel.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" required placeholder="Deine Frage oder Nachricht..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Nachricht Senden</button>
+            </form>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                Oder direkt per E-Mail: <a href="mailto:info@swimplio.com" style="color: white; text-decoration: underline;">info@swimplio.com</a>
+            </p>
         </div>
     </section>
 
@@ -903,9 +920,8 @@
 
                 <div class="footer-section">
                     <h4>Kontakt</h4>
-                    <a href="mailto:info@swimplio.de">info@swimplio.de</a>
-                    <a href="mailto:support@swimplio.de">Support</a>
-                    <a href="mailto:feedback@swimplio.de">Feedback</a>
+                    <a href="mailto:info@swimplio.com">info@swimplio.com</a>
+                    <a href="#contact">Kontaktformular</a>
                 </div>
             </div>
 
@@ -920,7 +936,7 @@
         const screenshotSlider = document.getElementById('screenshot-slider');
         const screenshots = [
             'images/screenshots/screen_3_willkommen.png',
-            'images/screenshots/screen_16_Track_Wahl_Freigeschaltet.png',
+            //'images/screenshots/screen_16_Track_Wahl_Freigeschaltet.png',
             'images/screenshots/screen_17_Lektionsübersicht.png',
             'images/screenshots/screen_24_Profil.png'
         ];
@@ -942,7 +958,7 @@
             images[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % screenshots.length;
             images[currentIndex].classList.add('active');
-        }, 3000);
+        }, 4000);
 
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(question => {
