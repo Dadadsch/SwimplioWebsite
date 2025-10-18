@@ -150,8 +150,8 @@
             background: var(--light-bg);
         }
 
-        /* Hero Section */
-        .hero {
+        /* Intro Section */
+        .intro {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -160,7 +160,7 @@
             min-height: 600px;
         }
 
-        .hero-content h1 {
+        .intro-content h1 {
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 20px;
@@ -168,14 +168,14 @@
             color: var(--text-dark);
         }
 
-        .hero-content p {
+        .intro-content p {
             font-size: 1.25rem;
             color: var(--text-light);
             margin-bottom: 30px;
             line-height: 1.6;
         }
 
-        .hero-buttons {
+        .intro-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -187,7 +187,7 @@
             font-size: 1.1rem;
         }
 
-        .hero-visual {
+        .intro-visual {
             perspective: 1000px;
             position: relative;
             height: 500px;
@@ -589,17 +589,17 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
+            .intro {
                 grid-template-columns: 1fr;
                 padding: 40px 0;
                 min-height: auto;
             }
 
-            .hero-content h1 {
+            .intro-content h1 {
                 font-size: 2.2rem;
             }
 
-            .hero-visual {
+            .intro-visual {
                 height: 400px;
             }
 
@@ -661,23 +661,23 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Intro Section -->
+    <section class="intro">
         <div class="container" style="grid-column: 1;">
-            <div class="hero-content">
+            <div class="intro-content">
                 <h1>Schwimmen Lernen – Einfach, Effektiv, Kostenlos!</h1>
                 <p>Lerne mit Hugo, deinem interaktiven 3D-Trainer, alle Schwimmtechniken – von Wassergewöhnung bis zur perfekten Rollwende.</p>
                 
-                <div class="hero-buttons">
+                <div class="intro-buttons">
                     <a href="#download" class="btn btn-primary btn-large">App Downloaden</a>
                     <a href="#features" class="btn btn-secondary btn-large">Mehr Erfahren</a>
                 </div>
 
-                <p style="font-size: 0.9rem; color: var(--text-light);">✓ Brustschwimmen komplett kostenlos • ✓ Interaktive 3D-Animationen • ✓ Für alle Altersgruppen</p>
+                <p style="font-size: 0.9rem; color: var(--text-light);"> ✓ Brustschwimmen Kostenlos! ✓ Für alle Altersgruppen ✓ Individueller Trainingsplan</p>
             </div>
         </div>
 
-        <div class="hero-visual">
+        <div class="intro-visual">
             <div class="phone-frame">
                 <div class="phone-screen" id="screenshot-slider">
                     <!-- Screenshots werden hier per JavaScript eingefügt -->
