@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwimPlio - Schwimmen Lernen wie nie zuvor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e5fa5;
+            --primary-dark: #1a4682;
+            --secondary: #00a8e8;
+            --accent: #00d084;
+            --accent-light: #4cef7d;
+            --light-bg: #f5f9fd;
+            --text-dark: #003d7a;
+            --text-light: #666;
+            --border: #e0e0e0;
+            --success: #ff6b6b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30, 95, 165, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-bg);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 80px 0;
+            min-height: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .hero-visual {
+            perspective: 1000px;
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-frame {
+            width: 300px;
+            height: 600px;
+            background: var(--primary);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background: var(--primary);
+            border-radius: 0 0 25px 25px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--light-bg);
+            border-radius: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2.5rem;
+            overflow: hidden;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 168, 232, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Techniques Section */
+        .techniques {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: white;
+            border: 3px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(0, 168, 232, 0.2);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--light-bg);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--secondary);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e8f4ff;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--light-bg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Download Section */
+        .downloads {
+            padding: 80px 0;
+            text-align: center;
+            background: white;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 95, 165, 0.3);
+        }
+
+        .download-btn.secondary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .download-btn.secondary:hover {
+            background: #00b86d;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .phone-frame {
+                width: 250px;
+                height: 500px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .btn-light {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    🏊 SWIMPLIO
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#techniques">Techniken</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#download" class="btn btn-primary btn-large">Download</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="grid-column: 1;">
+            <div class="hero-content">
+                <h1>Schwimmen Lernen – Einfach, Effektiv, Kostenlos</h1>
+                <p>Wie Duolingo, nur für Schwimmen. Lerne in deinem eigenen Tempo alle wichtigen Schwimmtechniken – von Anfänger bis Profi.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary btn-large">App Downloaden</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Mehr Erfahren</a>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--text-light);">✓ Kostenlos • ✓ Keine Werbung • ✓ Für alle Alter</p>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    🏊<br>💧<br>🎯
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Warum SwimPlio?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Spielerisch Lernen</h3>
+                    <p>Motivierende Übungen mit Streaks, Achievements und Fortschrittsanzeige – wie dein lieblings Lernspiel.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Von Experten Erstellt</h3>
+                    <p>Alle Inhalte basieren auf bewährten Trainingsmethoden von Schwimmtrainern und Wassersicherheitsexperten.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏊</div>
+                    <h3>Alle Techniken</h3>
+                    <p>Brustschwimmen, Kraul, Rückenschwimmen, Delfin – lerne alles in strukturierten Modulen.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Überall & Jederzeit</h3>
+                    <p>Lerne offline auf deinem Handy, Tablet oder Computer – ganz ohne Internetverbindung.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Für Alle Altersgruppen</h3>
+                    <p>Von Kindern bis Erwachsenen – angepasste Inhalte für dein Alter und dein Level.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Kostenlos</h3>
+                    <p>Keine versteckten Gebühren, keine Premium-Version – alles komplett kostenlos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Techniques Section -->
+    <section class="techniques" id="techniques">
+        <div class="container">
+            <h2 class="section-title">Diese Schwimmtechniken lernst du</h2>
+            
+            <div class="techniques-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🏊‍♂️</div>
+                    <h4>Brustschwimmen</h4>
+                    <p>Die klassische Technik – perfekt um anzufangen.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🏊</div>
+                    <h4>Kraulschwimmen</h4>
+                    <p>Die schnellste und effizienteste Technik.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🏊‍♀️</div>
+                    <h4>Rückenschwimmen</h4>
+                    <p>Entspannt und sicher – ideal für lange Strecken.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🐬</div>
+                    <h4>Delfinschwimmen</h4>
+                    <p>Die elegante Herausforderung – für Fortgeschrittene.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Häufig Gestellte Fragen</h2>
+            
+            <div class="faq-content">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>Ist SwimPlio wirklich kostenlos?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ja, 100%! SwimPlio ist komplett kostenlos und wird es immer bleiben. Keine versteckten Gebühren, keine Premium-Version, keine Werbung. Wir glauben, dass Schwimmen eine wichtige Fähigkeit ist, die jeder lernen sollte.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Ab welchem Alter kann man SwimPlio nutzen?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            SwimPlio ist für alle Altersgruppen geeignet. Es gibt spezielle Module für Kinder, Jugendliche und Erwachsene. Für kleine Kinder unter 4 Jahren sollten Eltern immer anwesend sein.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Ersetzt SwimPlio einen echten Schwimmkurs?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            SwimPlio ist eine großartige Ergänzung zu Schwimmkursen und ideal zum selbstständigen Üben. Für absolute Anfänger empfehlen wir, zusätzlich ein paar Lektionen mit einem Trainer zu nehmen, um die richtige Technik zu lernen.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Kann ich offline trainieren?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ja! SwimPlio funktioniert offline. Laden Sie die App einfach herunter und alle Lektionen stehen dir zur Verfügung – auch ohne Internetverbindung.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Wie lange dauert es, Schwimmen zu lernen?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Das hängt von dir ab! Mit regelmäßigem Training (3-4x pro Woche) können die meisten Menschen grundlegende Schwimmtechniken in 4-8 Wochen beherrschen. Fortgeschrittene Techniken brauchen etwas länger.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Auf welchen Geräten funktioniert SwimPlio?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            SwimPlio funktioniert auf iOS und Android Geräten sowie im Web. Download die App einfach aus dem App Store oder Play Store.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="downloads" id="download">
+        <div class="container">
+            <h2 class="section-title">Jetzt Downloaden</h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 40px;">Starte noch heute dein Schwimm-Abenteuer. SwimPlio ist 100% kostenlos und funktioniert auf allen Geräten.</p>
+            
+            <div class="download-buttons">
+                <a href="https://apps.apple.com" class="download-btn" target="_blank">
+                    🍎 App Store
+                </a>
+                <a href="https://play.google.com" class="download-btn" target="_blank">
+                    🤖 Google Play
+                </a>
+                <a href="#" class="download-btn secondary">
+                    🌐 Web App
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Noch Fragen?</h2>
+            <p>Wir sind hier um zu helfen! Schreib uns eine Nachricht.</p>
+            
+            <div class="contact-buttons">
+                <a href="mailto:info@swimplio.de" class="btn-light">📧 Email: info@swimplio.de</a>
+                <a href="tel:+49123456789" class="btn-light">📞 Anrufen</a>
+                <a href="#" class="btn-light">💬 Kontaktformular</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🏊 SwimPlio</h4>
+                    <a href="#">Über uns</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Karriere</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <a href="#">Datenschutz</a>
+                    <a href="#">Impressum</a>
+                    <a href="#">Nutzungsbedingungen</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Sozial</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">TikTok</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <a href="#">info@swimplio.de</a>
+                    <a href="#">Support</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SwimPlio. Alle Rechte vorbehalten. Gemacht mit 💙 für Schwimmer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
