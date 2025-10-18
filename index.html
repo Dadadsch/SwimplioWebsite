@@ -143,17 +143,20 @@
         .hero::before {
             content: '';
             position: absolute;
-            right: -10%;
+            /* move illustration slightly more into view */
+            right: -4%;
             top: 50%;
             transform: translateY(-50%);
-            width: 50%;
-            height: 90%;
+            width: 62%;
+            height: 110%;
             background-image: url('images/hero-illustration.png');
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 0;
+            background-position: center right;
+            /* make it more visible */
+            opacity: 0.18;
+            /* place above the phone but below text/buttons */
+            z-index: 2;
             pointer-events: none;
         }
 
@@ -197,18 +200,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            z-index: 1; /* keep phone behind illustration which has z-index:2 */
         }
 
         .phone-frame {
-            width: 300px;
-            height: 600px;
+            /* slightly smaller so it doesn't cover the hero illustration */
+            width: 260px;
+            height: 520px;
             background: var(--primary);
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 36px;
+            padding: 10px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
             position: relative;
             animation: float 4s ease-in-out infinite;
+            /* nudge left so the hero illustration is visible on the right */
+            transform: translateX(-40px);
+            z-index: 1;
         }
 
         .phone-frame::before {
@@ -241,8 +248,9 @@
 
         .phone-screen img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
+            object-position: top center;
             border-radius: 35px;
             position: absolute;
             top: 0;
@@ -568,8 +576,10 @@
             }
 
             .phone-frame {
-                width: 250px;
-                height: 500px;
+                width: 220px;
+                height: 440px;
+                transform: translateX(0);
+                margin: 0 auto;
             }
 
             .nav-links {
@@ -657,13 +667,13 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">�</div>
+                    <div class="feature-icon">🧜</div>
                     <h3>Interaktive 3D-Animationen</h3>
                     <p>Erlebe Schwimmtechniken in brillanten 3D-Animationen – aus jedem Blickwinkel, Schritt für Schritt erklärt.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">�🎮</div>
+                    <div class="feature-icon">🎮</div>
                     <h3>Spielerisch Lernen</h3>
                     <p>Motivierende Übungen mit Streaks, Achievements und Fortschrittsanzeige – maximale Motivation beim Lernen.</p>
                 </div>
@@ -687,13 +697,13 @@
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">👥</div>
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
                     <h3>Für Alle Altersgruppen</h3>
                     <p>Von Kindern bis Erwachsenen – angepasste Inhalte für dein Alter und dein Level.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">💯</div>
+                    <div class="feature-icon">💸</div>
                     <h3>Brustschwimmen Kostenlos</h3>
                     <p>Starte kostenlos mit Brustschwimmen – der perfekte Einstieg ins Schwimmen lernen.</p>
                 </div>
