@@ -58,13 +58,18 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--primary);
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -131,6 +136,25 @@
             gap: 40px;
             padding: 80px 0;
             min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 90%;
+            background-image: url('images/hero-illustration.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .hero-content h1 {
@@ -139,6 +163,8 @@
             margin-bottom: 20px;
             line-height: 1.2;
             color: var(--text-dark);
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content p {
@@ -146,6 +172,8 @@
             color: var(--text-light);
             margin-bottom: 30px;
             line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-buttons {
@@ -153,6 +181,8 @@
             gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-large {
@@ -167,6 +197,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
 
         .phone-frame {
@@ -205,6 +236,23 @@
             gap: 15px;
             font-size: 2.5rem;
             overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .phone-screen img.active {
+            opacity: 1;
         }
 
         @keyframes float {
@@ -295,6 +343,12 @@
         .tech-icon {
             font-size: 3rem;
             margin-bottom: 15px;
+        }
+
+        .tech-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
         }
 
         .tech-card h4 {
@@ -554,9 +608,10 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    🏊 SWIMPLIO
-                </div>
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="Swimplio Logo">
+                    <span>SWIMPLIO</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#techniques">Techniken</a></li>
@@ -588,8 +643,8 @@
 
         <div class="hero-visual">
             <div class="phone-frame">
-                <div class="phone-screen">
-                    🏊<br>💧<br>🎯
+                <div class="phone-screen" id="screenshot-slider">
+                    <!-- Screenshots werden hier per JavaScript eingefügt -->
                 </div>
             </div>
         </div>
@@ -653,25 +708,33 @@
             
             <div class="techniques-grid">
                 <div class="tech-card">
-                    <div class="tech-icon">🏊‍♂️</div>
+                    <div class="tech-icon">
+                        <img src="images/icons/brust.png" alt="Brustschwimmen Icon">
+                    </div>
                     <h4>Brustschwimmen</h4>
                     <p>Die klassische Technik – kostenlos verfügbar.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🏊</div>
+                    <div class="tech-icon">
+                        <img src="images/icons/freistil.png" alt="Kraulschwimmen Icon">
+                    </div>
                     <h4>Kraulschwimmen</h4>
                     <p>Die schnellste und effizienteste Technik – Premium.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🏊‍♀️</div>
+                    <div class="tech-icon">
+                        <img src="images/icons/rücken.png" alt="Rückenschwimmen Icon">
+                    </div>
                     <h4>Rückenschwimmen</h4>
                     <p>Entspannt und sicher – ideal für lange Strecken. Premium.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🐬</div>
+                    <div class="tech-icon">
+                        <img src="images/icons/schmetterling.png" alt="Delfinschwimmen Icon">
+                    </div>
                     <h4>Delfinschwimmen</h4>
                     <p>Die elegante Herausforderung – für Fortgeschrittene. Premium.</p>
                 </div>
@@ -843,6 +906,34 @@
     </footer>
 
     <script>
+        // Screenshot Slider
+        const screenshotSlider = document.getElementById('screenshot-slider');
+        const screenshots = [
+            'images/screenshots/screen_3_willkommen.png',
+            'images/screenshots/screen_16_Track_Wahl_Freigeschaltet.png',
+            'images/screenshots/screen_17_Lektionsübersicht.png',
+            'images/screenshots/screen_24_Profil.png'
+        ];
+
+        let currentIndex = 0;
+
+        // Lade alle Screenshots
+        screenshots.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Swimplio Screenshot ${index + 1}`;
+            if (index === 0) img.classList.add('active');
+            screenshotSlider.appendChild(img);
+        });
+
+        // Wechsle Screenshots alle 3 Sekunden
+        setInterval(() => {
+            const images = screenshotSlider.querySelectorAll('img');
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % screenshots.length;
+            images[currentIndex].classList.add('active');
+        }, 3000);
+
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
