@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Open Source Attributions und Danksagungen für SWIMPLIO">
+    <title>Danksagungen & Open Source Attribution - SWIMPLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2B5FA6 0%, #305bab 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro {
+            background: #F0F4FF;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2B5FA6;
+        }
+
+        .intro p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+
+        .attribution-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2B5FA6;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #E5E7EB;
+        }
+
+        .attribution-item {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .attribution-item:hover {
+            box-shadow: 0 4px 12px rgba(43, 95, 166, 0.1);
+            border-color: #2B5FA6;
+        }
+
+        .attribution-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .attribution-header h3 {
+            font-size: 1.2rem;
+            color: #1F2937;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .attribution-license {
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .chevron {
+            font-size: 1.5rem;
+            color: #6B7280;
+            transition: transform 0.3s ease;
+        }
+
+        .attribution-item.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        .attribution-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .attribution-item.expanded .attribution-content {
+            max-height: 500px;
+        }
+
+        .attribution-body {
+            padding: 0 20px 20px 20px;
+        }
+
+        .attribution-body p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 15px;
+        }
+
+        .attribution-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #2B5FA6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid #2B5FA6;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .attribution-link:hover {
+            background: #2B5FA6;
+            color: white;
+        }
+
+        .license-full {
+            background: #FFFBEB;
+            border: 1px solid #F59E0B;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #92400E;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background: #F9FAFB;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .footer p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer .copyright {
+            color: #9CA3AF;
+            font-size: 0.85rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🙏 Danksagungen</h1>
+            <p>Open Source Attribution für SWIMPLIO</p>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <p>
+                    <strong>SWIMPLIO</strong> wurde mit Hilfe zahlreicher Open-Source-Projekte und kreativer Beiträge erstellt.
+                    Wir möchten uns bei allen Entwicklern und Künstlern bedanken, die ihre Arbeit der Community zur Verfügung stellen.
+                    Diese Seite enthält alle erforderlichen Lizenzen und Attributionen.
+                </p>
+            </div>
+
+            <!-- 3D Assets -->
+            <div class="attribution-section">
+                <h2 class="section-title">🎨 Kreative Assets</h2>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Fredoka Font Family</h3>
+                            <div class="attribution-license">SIL Open Font License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://fonts.google.com/specimen/Fredoka" class="attribution-link" target="_blank">
+                                🔗 Google Fonts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Frameworks -->
+            <div class="attribution-section">
+                <h2 class="section-title">⚛️ Core Frameworks</h2>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>React Native</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://reactnative.dev/" class="attribution-link" target="_blank">
+                                🔗 reactnative.dev
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Expo</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://expo.dev/" class="attribution-link" target="_blank">
+                                🔗 expo.dev
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D & Graphics -->
+            <div class="attribution-section">
+                <h2 class="section-title">🎮 3D & Graphics</h2>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>@react-three/fiber</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://github.com/pmndrs/react-three-fiber" class="attribution-link" target="_blank">
+                                🔗 GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Three.js</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://threejs.org/" class="attribution-link" target="_blank">
+                                🔗 threejs.org
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend & Auth -->
+            <div class="attribution-section">
+                <h2 class="section-title">🔐 Backend & Authentication</h2>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Firebase</h3>
+                            <div class="attribution-license">Apache License 2.0</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://firebase.google.com/" class="attribution-link" target="_blank">
+                                🔗 firebase.google.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>@react-native-google-signin/google-signin</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://github.com/react-native-google-signin/google-signin" class="attribution-link" target="_blank">
+                                🔗 GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>react-native-fbsdk-next</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://github.com/thebergamo/react-native-fbsdk-next" class="attribution-link" target="_blank">
+                                🔗 GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation & UI -->
+            <div class="attribution-section">
+                <h2 class="section-title">🧭 Navigation & UI</h2>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>React Navigation</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://reactnavigation.org/" class="attribution-link" target="_blank">
+                                🔗 reactnavigation.org
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>@expo/vector-icons</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <a href="https://github.com/expo/vector-icons" class="attribution-link" target="_blank">
+                                🔗 GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                Alle aufgeführten Projekte und deren Lizenzen werden in Übereinstimmung mit ihren
+                jeweiligen Lizenzbedingungen verwendet.
+            </p>
+            <p>
+                Bei Fragen zu den Attributionen kontaktieren Sie uns bitte unter:
+                <strong>info@swimplio.com</strong>
+            </p>
+            <p class="copyright">
+                © 2025 SWIMPLIO<br>
+                Erstellt mit ❤️ für besseres Schwimmenlernen
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleItem(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.attribution-item');
+            
+            // Optional: Schließe alle anderen Items
+            // allItems.forEach(i => {
+            //     if (i !== item) i.classList.remove('expanded');
+            // });
+            
+            item.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
