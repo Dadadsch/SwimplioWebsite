@@ -17,24 +17,21 @@
 
         body {
             font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             min-height: 100vh;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #2B5FA6 0%, #305bab 100%);
+            background: #1e5fa5;
             color: white;
-            padding: 40px 30px;
+            padding: 60px 30px;
             text-align: center;
         }
 
@@ -51,15 +48,17 @@
         }
 
         .content {
-            padding: 40px 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 30px;
         }
 
         .intro {
             background: #F0F4FF;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #2B5FA6;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            border-left: 5px solid #1e5fa5;
         }
 
         .intro p {
@@ -75,7 +74,7 @@
         .section-title {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #2B5FA6;
+            color: #1e5fa5;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 3px solid #E5E7EB;
@@ -91,8 +90,8 @@
         }
 
         .attribution-item:hover {
-            box-shadow: 0 4px 12px rgba(43, 95, 166, 0.1);
-            border-color: #2B5FA6;
+            box-shadow: 0 4px 12px rgba(30, 95, 165, 0.1);
+            border-color: #1e5fa5;
         }
 
         .attribution-header {
@@ -151,19 +150,27 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #2B5FA6;
+            color: #1e5fa5;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
             padding: 8px 16px;
-            border: 1px solid #2B5FA6;
+            border: 1px solid #1e5fa5;
             border-radius: 8px;
             transition: all 0.2s ease;
+            margin: 5px 5px 5px 0;
         }
 
         .attribution-link:hover {
-            background: #2B5FA6;
+            background: #1e5fa5;
             color: white;
+        }
+        
+        .icon-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .license-full {
@@ -178,10 +185,11 @@
         }
 
         .footer {
-            background: #F9FAFB;
-            padding: 30px;
+            background: #f5f9fd;
+            padding: 40px 30px;
             text-align: center;
             border-top: 1px solid #E5E7EB;
+            margin-top: 60px;
         }
 
         .footer p {
@@ -227,24 +235,26 @@
                 </p>
             </div>
 
-            <!-- 3D Assets -->
+            <!-- Icons & Graphics -->
             <div class="attribution-section">
-                <h2 class="section-title">🎨 Kreative Assets</h2>
+                <h2 class="section-title">🎨 Icons & Graphics</h2>
 
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>Water Proof Icons (Flaticon)</h3>
+                            <h3>Flaticon Icons</h3>
                             <div class="attribution-license">Flaticon License - Free with Attribution</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
-                            <p>Handphone and water-related icons used in the app interface.</p>
-                            <a href="https://www.flaticon.com/free-icons/water-proof" class="attribution-link" target="_blank" title="water proof icons">
-                                🔗 Water proof icons by artcus - Flaticon
-                            </a>
+                            <p>Various icons used throughout the app interface:</p>
+                            <div class="icon-links">
+                                <a href="https://www.flaticon.com/free-icons/water-proof" class="attribution-link" target="_blank" title="water proof icons">
+                                    Water proof icons by artcus
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -259,8 +269,27 @@
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Primary font used in the app.</p>
                             <a href="https://fonts.google.com/specimen/Fredoka" class="attribution-link" target="_blank">
                                 🔗 Google Fonts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Lottie Animations</h3>
+                            <div class="attribution-license">Various Licenses</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <p>Animated graphics powered by Lottie.</p>
+                            <a href="https://lottiefiles.com/" class="attribution-link" target="_blank">
+                                🔗 LottieFiles
                             </a>
                         </div>
                     </div>
@@ -274,15 +303,19 @@
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>React Native</h3>
+                            <h3>React & React Native</h3>
                             <div class="attribution-license">MIT License</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Core framework for building the mobile app.</p>
                             <a href="https://reactnative.dev/" class="attribution-link" target="_blank">
-                                🔗 reactnative.dev
+                                🔗 React Native
+                            </a>
+                            <a href="https://react.dev/" class="attribution-link" target="_blank">
+                                🔗 React
                             </a>
                         </div>
                     </div>
@@ -298,6 +331,7 @@
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Development platform and tooling.</p>
                             <a href="https://expo.dev/" class="attribution-link" target="_blank">
                                 🔗 expo.dev
                             </a>
@@ -308,20 +342,30 @@
 
             <!-- 3D & Graphics -->
             <div class="attribution-section">
-                <h2 class="section-title">🎮 3D & Graphics</h2>
+                <h2 class="section-title">🎮 3D & Animation Libraries</h2>
 
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>@react-three/fiber</h3>
+                            <h3>Three.js & React Three Fiber</h3>
                             <div class="attribution-license">MIT License</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>3D rendering engine and React renderer for Hugo's interactive 3D animations.</p>
+                            <a href="https://threejs.org/" class="attribution-link" target="_blank">
+                                🔗 Three.js
+                            </a>
                             <a href="https://github.com/pmndrs/react-three-fiber" class="attribution-link" target="_blank">
-                                🔗 GitHub
+                                🔗 React Three Fiber
+                            </a>
+                            <a href="https://github.com/pmndrs/drei" class="attribution-link" target="_blank">
+                                🔗 @react-three/drei
+                            </a>
+                            <a href="https://github.com/pmndrs/react-postprocessing" class="attribution-link" target="_blank">
+                                🔗 @react-three/postprocessing
                             </a>
                         </div>
                     </div>
@@ -330,15 +374,61 @@
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>Three.js</h3>
+                            <h3>Moti & Reanimated</h3>
                             <div class="attribution-license">MIT License</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
-                            <a href="https://threejs.org/" class="attribution-link" target="_blank">
-                                🔗 threejs.org
+                            <p>Animation libraries for smooth UI transitions.</p>
+                            <a href="https://moti.fyi/" class="attribution-link" target="_blank">
+                                🔗 Moti
+                            </a>
+                            <a href="https://docs.swmansion.com/react-native-reanimated/" class="attribution-link" target="_blank">
+                                🔗 React Native Reanimated
+                            </a>
+                            <a href="https://github.com/wcandillon/react-native-redash" class="attribution-link" target="_blank">
+                                🔗 React Native Redash
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>Skia & SVG</h3>
+                            <div class="attribution-license">MIT License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <p>High-performance graphics and vector rendering.</p>
+                            <a href="https://shopify.github.io/react-native-skia/" class="attribution-link" target="_blank">
+                                🔗 React Native Skia
+                            </a>
+                            <a href="https://github.com/software-mansion/react-native-svg" class="attribution-link" target="_blank">
+                                🔗 React Native SVG
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attribution-item">
+                    <div class="attribution-header" onclick="toggleItem(this)">
+                        <div>
+                            <h3>D3.js</h3>
+                            <div class="attribution-license">ISC License</div>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="attribution-content">
+                        <div class="attribution-body">
+                            <p>Data visualization for progress tracking charts.</p>
+                            <a href="https://d3js.org/" class="attribution-link" target="_blank">
+                                🔗 D3.js
                             </a>
                         </div>
                     </div>
@@ -359,8 +449,9 @@
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Backend services, authentication, and database.</p>
                             <a href="https://firebase.google.com/" class="attribution-link" target="_blank">
-                                🔗 firebase.google.com
+                                🔗 Firebase
                             </a>
                         </div>
                     </div>
@@ -369,32 +460,25 @@
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>@react-native-google-signin/google-signin</h3>
+                            <h3>Social Authentication</h3>
                             <div class="attribution-license">MIT License</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Login with Google, Apple, and Facebook.</p>
                             <a href="https://github.com/react-native-google-signin/google-signin" class="attribution-link" target="_blank">
-                                🔗 GitHub
+                                🔗 Google Sign-In
                             </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="attribution-item">
-                    <div class="attribution-header" onclick="toggleItem(this)">
-                        <div>
-                            <h3>react-native-fbsdk-next</h3>
-                            <div class="attribution-license">MIT License</div>
-                        </div>
-                        <span class="chevron">▼</span>
-                    </div>
-                    <div class="attribution-content">
-                        <div class="attribution-body">
+                            <a href="https://github.com/invertase/react-native-apple-authentication" class="attribution-link" target="_blank">
+                                🔗 Apple Authentication
+                            </a>
                             <a href="https://github.com/thebergamo/react-native-fbsdk-next" class="attribution-link" target="_blank">
-                                🔗 GitHub
+                                🔗 Facebook SDK
+                            </a>
+                            <a href="https://docs.expo.dev/guides/authentication/" class="attribution-link" target="_blank">
+                                🔗 Expo Auth Session
                             </a>
                         </div>
                     </div>
@@ -403,7 +487,7 @@
 
             <!-- Navigation & UI -->
             <div class="attribution-section">
-                <h2 class="section-title">🧭 Navigation & UI</h2>
+                <h2 class="section-title">🧭 Navigation & UI Components</h2>
 
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
@@ -415,8 +499,9 @@
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
+                            <p>Navigation framework for seamless screen transitions.</p>
                             <a href="https://reactnavigation.org/" class="attribution-link" target="_blank">
-                                🔗 reactnavigation.org
+                                🔗 React Navigation
                             </a>
                         </div>
                     </div>
@@ -425,15 +510,34 @@
                 <div class="attribution-item">
                     <div class="attribution-header" onclick="toggleItem(this)">
                         <div>
-                            <h3>@expo/vector-icons</h3>
+                            <h3>UI Utilities</h3>
                             <div class="attribution-license">MIT License</div>
                         </div>
                         <span class="chevron">▼</span>
                     </div>
                     <div class="attribution-content">
                         <div class="attribution-body">
-                            <a href="https://github.com/expo/vector-icons" class="attribution-link" target="_blank">
-                                🔗 GitHub
+                            <p>Essential UI components and utilities.</p>
+                            <a href="https://github.com/software-mansion/react-native-gesture-handler" class="attribution-link" target="_blank">
+                                🔗 Gesture Handler
+                            </a>
+                            <a href="https://github.com/th3rdwave/react-native-safe-area-context" class="attribution-link" target="_blank">
+                                🔗 Safe Area Context
+                            </a>
+                            <a href="https://github.com/software-mansion/react-native-screens" class="attribution-link" target="_blank">
+                                🔗 React Native Screens
+                            </a>
+                            <a href="https://github.com/react-native-picker/picker" class="attribution-link" target="_blank">
+                                🔗 Picker
+                            </a>
+                            <a href="https://github.com/terrysahaidak/react-native-bars" class="attribution-link" target="_blank">
+                                🔗 React Native Bars
+                            </a>
+                            <a href="https://github.com/react-native-linear-gradient/react-native-linear-gradient" class="attribution-link" target="_blank">
+                                🔗 Linear Gradient
+                            </a>
+                            <a href="https://github.com/react-native-webview/react-native-webview" class="attribution-link" target="_blank">
+                                🔗 WebView
                             </a>
                         </div>
                     </div>
@@ -448,7 +552,7 @@
             </p>
             <p>
                 Bei Fragen zu den Attributionen kontaktieren Sie uns bitte unter:
-                <strong>legal@swimplio.com</strong>
+                <strong>info@swimplio.com</strong>
             </p>
             <p class="copyright">
                 © 2025 SWIMPLIO<br>
