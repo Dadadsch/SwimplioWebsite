@@ -28,6 +28,7 @@ Lerne schwimmen mit Hugo, deinem interaktiven 3D-Trainer – spielerisch, effekt
 
 📄 Rechtliches
 
+- [AGB](https://swimplio.com/agb)
 - [Datenschutzerklärung](https://swimplio.com/datenschutz)
 - [Impressum](https://swimplio.com/impressum)
 - [Danksagungen & Lizenzen](https://swimplio.com/attribution)
